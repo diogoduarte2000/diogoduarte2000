@@ -1,4 +1,4 @@
-name: Update contribution animation
+name: Update profile donut
 
 on:
   schedule:
@@ -29,16 +29,11 @@ jobs:
       - name: Generate ASCII donut
         run: python tools/generate_donut.py --output dist/ascii-donut.gif
 
-      - name: Generate contribution snake
-        uses: Platane/snk@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: dist/github-contribution-grid-snake.svg
-
       - name: Publish animation
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
           build_dir: dist
+          clean: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
