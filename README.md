@@ -28,6 +28,14 @@ I have in-depth knowledge of LLMs, including Transformer architecture, attention
 - [BLOOM](https://github.com/diogoduarte2000/BLOOM) — Digital project built with HTML.
 - [COSMOSXP](https://github.com/diogoduarte2000/COSMOSXP) — TypeScript project.
 
+### A little ASCII motion
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-donut.gif" alt="Animated 3D ASCII donut" width="720">
+
+</div>
+
 ### Contribution activity
 
 ![Animated contribution snake](https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/github-contribution-grid-snake.svg)
