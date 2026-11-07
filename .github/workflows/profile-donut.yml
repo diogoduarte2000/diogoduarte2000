@@ -1,4 +1,4 @@
-name: Update profile donut
+name: Update profile brain
 
 on:
   schedule:
@@ -26,8 +26,8 @@ jobs:
       - name: Install GIF generator dependency
         run: python -m pip install Pillow
 
-      - name: Generate ASCII donut
-        run: python tools/generate_donut.py --output dist/ascii-donut.gif
+      - name: Generate ASCII brain
+        run: python tools/generate_donut.py --output dist/ascii-brain.gif
 
       - name: Publish animation
         uses: crazy-max/ghaction-github-pages@v4
