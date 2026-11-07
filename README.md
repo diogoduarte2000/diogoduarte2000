@@ -9,6 +9,7 @@
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO-Visit%20my%20site-FF5A14?style=for-the-badge&logo=vercel&logoColor=white)](https://diogoduarte.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/diogo-duarte-471a221b6/)
 [![GitLab](https://img.shields.io/badge/GITLAB-Find%20me-FC6D26?style=for-the-badge&logo=gitlab&logoColor=white)](https://gitlab.com/diogoduarte2000)
+[![Profile views](https://komarev.com/ghpvc/?username=diogoduarte2000&label=PROFILE%20VIEWS&color=FF5A14&style=for-the-badge)](https://github.com/diogoduarte2000)
 
 </div>
 
@@ -18,7 +19,7 @@
 
 I'm a full stack developer with a degree in Multimedia Engineering. I build responsive applications, connect interfaces to APIs and data, and bring a design-focused perspective to the entire process. I enjoy turning complex problems into clear, useful digital experiences.
 
-I have in-depth knowledge of LLMs, including Transformer architecture, attention mechanisms, tokenization, embeddings, context windows, inference, RAG and vector search, as well as VLMs and multimodal systems.
+I have in-depth knowledge of LLMs, including Transformer architecture, attention mechanisms, tokenization, embeddings, context windows, inference, RAG and vector search, as well as VLMs and multimodal systems. I also have a basic understanding of SSH, server administration, and infrastructure fundamentals.
 
 ### Languages and tools
 
@@ -41,7 +42,7 @@ I have in-depth knowledge of LLMs, including Transformer architecture, attention
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-donut.gif" alt="Animated 3D ASCII donut" width="720">
+<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-brain.gif" alt="Animated 3D ASCII brain" width="720">
 
 </div>
 
