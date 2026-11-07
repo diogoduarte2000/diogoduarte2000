@@ -39,52 +39,34 @@ def load_font(size):
 
 
 def render_frame(frame_index, font):
-    angle_a = 0.2 + frame_index * 2 * math.pi / FRAME_COUNT
-    angle_b = 0.2 + frame_index * 4 * math.pi / FRAME_COUNT
-    z_buffer = [[-1.0] * WIDTH for _ in range(HEIGHT)]
+    phase = frame_index * 2 * math.pi / FRAME_COUNT
     pixels = [[" "] * WIDTH for _ in range(HEIGHT)]
-    sin_a, cos_a = math.sin(angle_a), math.cos(angle_a)
-    sin_b, cos_b = math.sin(angle_b), math.cos(angle_b)
-    light = (-0.4, 0.7, -0.6)
+    for row in range(HEIGHT):
+        y = (row - (HEIGHT - 1) / 2) / (HEIGHT * 0.39)
+        for column in range(WIDTH):
+            x = (column - (WIDTH - 1) / 2) / (WIDTH * 0.37)
+            center = 0.46 if x >= 0 else -0.46
+            u = (x - center) / 0.59
+            v = y / 0.76
+            edge_wave = 1 + 0.035 * math.sin(10 * v + 3 * u + phase)
+            if u * u + v * v >= edge_wave:
+                continue
 
-    for theta_step in range(256):
-        theta = theta_step * 2 * math.pi / 256
-        sin_theta, cos_theta = math.sin(theta), math.cos(theta)
-        for phi_step in range(128):
-            phi = phi_step * 2 * math.pi / 128
-            sin_phi, cos_phi = math.sin(phi), math.cos(phi)
-            radius = 1 + 0.42 * cos_phi
-            x = radius * cos_theta
-            y = radius * sin_theta
-            z = 0.42 * sin_phi
+            fold_a = abs(u - 0.24 * math.sin(7 * v + phase))
+            fold_b = abs(u + 0.30 * math.sin(6 * v - phase + 1.2))
+            fold_c = abs(v - 0.24 * math.sin(7 * u + phase + 2.1))
+            fold_d = abs(v + 0.28 * math.sin(6 * u - phase + 0.7))
+            groove = min(fold_a, fold_b, fold_c * 0.72, fold_d * 0.72)
 
-            normal_x = cos_phi * cos_theta
-            normal_y = cos_phi * sin_theta
-            normal_z = sin_phi
-
-            rotated_x = x * cos_b + z * sin_b
-            rotated_z = -x * sin_b + z * cos_b
-            rotated_y = y * cos_a - rotated_z * sin_a
-            rotated_z = y * sin_a + rotated_z * cos_a
-            rotated_normal_x = normal_x * cos_b + normal_z * sin_b
-            rotated_normal_z = -normal_x * sin_b + normal_z * cos_b
-            rotated_normal_y = normal_y * cos_a - rotated_normal_z * sin_a
-            rotated_normal_z = normal_y * sin_a + rotated_normal_z * cos_a
-
-            perspective = 1 / (3.8 - rotated_z)
-            column = int(WIDTH / 2 + 120 * rotated_x * perspective)
-            row = int(HEIGHT / 2 - 45 * rotated_y * perspective)
-            diffuse = (
-                rotated_normal_x * light[0]
-                + rotated_normal_y * light[1]
-                + rotated_normal_z * light[2]
-            )
-
-            if 0 <= column < WIDTH and 0 <= row < HEIGHT and rotated_z > z_buffer[row][column]:
-                z_buffer[row][column] = rotated_z
-                brightness = 0.12 + max(0, min(1, (diffuse + 1) / 2)) * 0.88
-                shade = max(1, min(len(CHARACTERS) - 1, int(brightness * (len(CHARACTERS) - 1))))
-                pixels[row][column] = CHARACTERS[shade]
+            light = 0.5 + 0.5 * math.cos(x * 1.8 - phase)
+            brightness = 0.30 + 0.62 * light * (0.78 + 0.22 * (1 - abs(v)))
+            shade = int(brightness * (len(CHARACTERS) - 1))
+            if groove < 0.045:
+                shade -= 3
+            if abs(x) < 0.045 and abs(y) < 0.77:
+                shade -= 4
+            shade = max(1, min(len(CHARACTERS) - 1, shade))
+            pixels[row][column] = CHARACTERS[shade]
 
     canvas = Image.new("RGB", (760, 420), (13, 17, 23))
     draw = ImageDraw.Draw(canvas)
@@ -108,7 +90,7 @@ def render_frame(frame_index, font):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate a looping ASCII torus GIF.")
+    parser = argparse.ArgumentParser(description="Generate a looping ASCII brain GIF.")
     parser.add_argument("--output", type=Path, required=True)
     output = parser.parse_args().output
     output.parent.mkdir(parents=True, exist_ok=True)
