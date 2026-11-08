@@ -38,11 +38,11 @@ I have in-depth knowledge of LLMs, including Transformer architecture, attention
 | [BLOOM](https://github.com/diogoduarte2000/BLOOM) | Digital project built with HTML |
 | [COSMOSXP](https://github.com/diogoduarte2000/COSMOSXP) | TypeScript project |
 
-### A little ASCII motion
+### A 3D debugging duck
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-brain-v2.gif" alt="Animated 3D ASCII brain" width="720">
+<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-debug-duck.gif" alt="A debugging duck rotating 360 degrees in 3D ASCII" width="720">
 
 </div>
 
