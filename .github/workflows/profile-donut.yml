@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install Pillow
 
       - name: Generate ASCII brain
-        run: python tools/generate_donut.py --output dist/ascii-brain.gif
+        run: python tools/generate_donut.py --output dist/ascii-brain-v2.gif
 
       - name: Publish animation
         uses: crazy-max/ghaction-github-pages@v4
