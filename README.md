@@ -42,7 +42,7 @@ I have in-depth knowledge of LLMs, including Transformer architecture, attention
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-brain.gif" alt="Animated 3D ASCII brain" width="720">
+<img src="https://raw.githubusercontent.com/diogoduarte2000/diogoduarte2000/output/ascii-brain-v2.gif" alt="Animated 3D ASCII brain" width="720">
 
 </div>
 
